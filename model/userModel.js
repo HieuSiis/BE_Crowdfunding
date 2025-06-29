@@ -2,6 +2,17 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
+const campaignSchema = new mongoose.Schema({
+  category: String,
+  title: String,
+  description: String,
+  srcVideo: String,
+  raised: Number,
+  target: Number,
+  backer: Number,
+  day: Number,
+});
+
 const userSchema = new mongoose.Schema(
   {
     fullName: {
@@ -55,6 +66,7 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    createdCampaigns: [campaignSchema],
   },
   {
     timestamps: true,
