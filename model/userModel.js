@@ -66,6 +66,8 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+
+    // Embedded documents for campaigns created by the user
     createdCampaigns: [campaignSchema],
   },
   {
